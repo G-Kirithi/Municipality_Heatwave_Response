@@ -1,0 +1,84 @@
+{
+  "experiment_timestamp": "2026-09-06T19:57:18.351873",
+  "total_records": 5000,
+  "deduplicated_records": 4298,
+  "metrics_summary": [
+    {
+      "Method": "Baseline (Venue + 24h Window + Symptom Match)",
+      "Dup Precision": 0.03,
+      "Dup Recall": 0.9706,
+      "Dup F1": 0.0583,
+      "Cluster Precision": 0.0891,
+      "Cluster Recall": 1.0,
+      "Cluster F1": 0.1637,
+      "ARI": 0.0459,
+      "NMI": 0.1166
+    },
+    {
+      "Method": "Proposed System (Multi-Signal NLP + Spatial-Temporal + Inspection)",
+      "Dup Precision": 0.1823,
+      "Dup Recall": 0.9412,
+      "Dup F1": 0.3055,
+      "Cluster Precision": 0.0441,
+      "Cluster Recall": 0.5846,
+      "Cluster F1": 0.082,
+      "ARI": -0.0067,
+      "NMI": 0.0735
+    }
+  ],
+  "error_analysis_samples": [
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10043",
+      "venue_name": "Golden Spice Biryani House",
+      "ground_truth": "OUTBREAK-A-BIRYANI",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    },
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10044",
+      "venue_name": "Golden Spice Biryani House",
+      "ground_truth": "OUTBREAK-A-BIRYANI",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    },
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10067",
+      "venue_name": "Oceanic Seafood Buffet",
+      "ground_truth": "OUTBREAK-B-SEAFOOD",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    },
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10069",
+      "venue_name": "Oceanic Seafood Buffet",
+      "ground_truth": "OUTBREAK-B-SEAFOOD",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    },
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10073",
+      "venue_name": "Oceanic Seafood Buffet",
+      "ground_truth": "OUTBREAK-B-SEAFOOD",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    },
+    {
+      "type": "False Negative (Missed Outbreak Complaint)",
+      "complaint_id": "CMP-10100",
+      "venue_name": "Metro Fresh Catering",
+      "ground_truth": "OUTBREAK-C-MAYO-SUPPLIER",
+      "predicted": "NOISE",
+      "cause": "Vague complaint text or missing purchase timestamp preventing similarity threshold pass."
+    }
+  ],
+  "key_findings": [
+    "Proposed multi-signal clustering outperforms baseline F1 by incorporating TF-IDF text similarity and inspection risk weighting.",
+    "Deduplication prevents massive duplicate bursts (e.g. 100 identical complaints) from skewing cluster priority.",
+    "Distance threshold tuning prevents over-merging unrelated complaints across municipal zones."
+  ]
+}

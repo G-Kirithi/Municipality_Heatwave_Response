@@ -1,0 +1,3 @@
+Method,Dup Precision,Dup Recall,Dup F1,Cluster Precision,Cluster Recall,Cluster F1,ARI,NMI
+Baseline (Venue + 24h Window + Symptom Match),0.03,0.9706,0.0583,0.0891,1.0,0.1637,0.0459,0.1166
+Proposed System (Multi-Signal NLP + Spatial-Temporal + Inspection),0.1823,0.9412,0.3055,0.0441,0.5846,0.082,-0.0067,0.0735
